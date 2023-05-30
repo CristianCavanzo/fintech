@@ -1,0 +1,31 @@
+{
+  "name": "04-fintech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "next lint",
+    "dev": "next dev",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "next": "^13.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.2.3",
+    "@types/react": "18.2.6",
+    "eslint": "8.41.0",
+    "eslint-config-next": "13.4.3",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "prettier-eslint": "^15.0.1",
+    "typescript": "5.0.4"
+  }
+}

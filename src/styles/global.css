@@ -1,0 +1,40 @@
+:root {
+	--principalColor: #57a7e6;
+	--principalColorDarker: #1965ac;
+	--colorText: #0e283f;
+	--xxs: 8px;
+	--xs: 12px;
+	--s: 16px;
+	--m: 24px;
+	--l: 28px;
+	--xl: 32px;
+	--xxl: 36px;
+
+	--padding-xxs: var(--xxs);
+	--padding-xs: var(--xs);
+	--padding-s: var(--s);
+	--padding-m: var(--m);
+	--padding-l: var(--l);
+	--padding-xl: var(--xl);
+	--padding-xxl: var(--xxl);
+
+	--margin-xxs: var(--xxs);
+	--margin-xs: var(--xs);
+	--margin-s: var(--s);
+	--margin-m: var(--m);
+	--margin-l: var(--l);
+	--margin-xl: var(--xl);
+	--margin-xxl: var(--xxl);
+
+	--font-size-xxs: var(--xxs);
+	--font-size-xs: var(--xs);
+	--font-size-s: var(--s);
+	--font-size-m: var(--m);
+	--font-size-l: var(--l);
+	--font-size-xl: var(--xl);
+	--font-size-xxl: var(--xxl);
+}
+* {
+	margin: 0;
+	padding: 0;
+}
