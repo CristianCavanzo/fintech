@@ -21,11 +21,13 @@
   "devDependencies": {
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
+    "@types/styled-components": "^5.1.26",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "prettier-eslint": "^15.0.1",
+    "styled-components": "^5.3.11",
     "typescript": "5.0.4"
   }
 }
