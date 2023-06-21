@@ -2,7 +2,7 @@
 	--principalColor: #fff;
 	--principalColorDarker: #1965ac;
 	--colorText: #0e283f;
-	--xxs: 8px;
+	--xxs: 6px;
 	--xs: 12px;
 	--s: 16px;
 	--m: 24px;
@@ -37,4 +37,33 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+}
+.mainContent {
+	padding: 48px 16px;
+	margin: 0 auto;
+}
+.display-grid {
+	display: grid;
+}
+.row_gap--xxs {
+	row-gap: var(--xxs);
+}
+.row_gap--xs {
+	row-gap: var(--xs);
+}
+.row_gap--s {
+	row-gap: var(--s);
+}
+.row_gap--m {
+	row-gap: var(--m);
+}
+.row_gap--l {
+	row-gap: var(--l);
+}
+.row_gap--xl {
+	row-gap: var(--xl);
+}
+.row_gap--xxl {
+	row-gap: var(--xxl);
 }
