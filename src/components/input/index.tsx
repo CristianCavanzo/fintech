@@ -1,12 +1,18 @@
 import { poppins } from '@font';
 import React, { HTMLInputTypeAttribute, ReactNode } from 'react';
+import { getPathIcon } from 'src/utils/getPathIcon';
 import styled from 'styled-components';
+import { nameIcons } from 'types';
 
 const InputComponent = styled.input`
-	padding: var(--padding-xxs) var(--padding-xs);
+	padding: 9px var(--padding-xs);
 	outline: none;
-	border: 1px solid #000;
-	border-radius: var(--xxl);
+	border: none;
+	border-radius: var(--xs);
+	background: #f5f5f5;
+	:focus {
+		outline: 2px solid var(--principalColor);
+	}
 `;
 interface LableProps {
 	column: boolean;
@@ -25,8 +31,17 @@ interface Props {
 	identification: string;
 	column?: boolean;
 	type?: HTMLInputTypeAttribute;
+	icon?: nameIcons;
 }
-const Input = ({ placeholder, identification, children, column = false, type = 'text' }: Props) => {
+const Input = ({
+	placeholder,
+	identification,
+	children,
+	column = false,
+	type = 'text',
+	icon,
+}: Props) => {
+	const Icon = getPathIcon(icon);
 	return (
 		<Label column={column} htmlFor={identification}>
 			{children}
@@ -36,6 +51,7 @@ const Input = ({ placeholder, identification, children, column = false, type = '
 				className={poppins.className}
 				placeholder={placeholder}
 			/>
+			<Icon width={30} height={30} color="blue" />
 		</Label>
 	);
 };
