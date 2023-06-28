@@ -3,11 +3,16 @@ import React from 'react';
 import styled from 'styled-components';
 const Main = styled.section``;
 const Home = () => {
+	const basicData = {
+		width: 30,
+		height: 30,
+	};
 	return (
 		<Main className="display-grid row_gap--xs">
 			{/* https://assets.materialup.com/uploads/082d4c7c-55aa-41d5-86c5-0ba061189743/preview.jpg */}
+
 			<Input
-				icon="email"
+				icon={{ name: 'email', ...basicData, className: 'blue' }}
 				column={true}
 				type="email"
 				identification="email"
@@ -15,12 +20,13 @@ const Home = () => {
 			>
 				Ingresa tu email
 			</Input>
+
 			<Input
 				column={true}
 				type="password"
 				identification="password"
 				placeholder="Ingresa tu email"
-				icon="email"
+				icon={{ name: 'password', ...basicData }}
 			>
 				Ingresa tu contraseña
 			</Input>

@@ -3,11 +3,10 @@ import React from 'react';
 export type nameIcons = 'email' | 'password';
 export interface Icons {
 	name: nameIcons;
-	// eslint-disable-next-line no-unused-vars
 	path: React.ComponentType<IconProps>;
 }
 
-export interface IconsMeasures {
+export interface IconsMeasures extends React.SVGProps<SVGSVGElement> {
 	width: number;
 	height: number;
 }

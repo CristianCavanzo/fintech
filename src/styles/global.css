@@ -68,3 +68,7 @@
 .row_gap--xxl {
 	row-gap: var(--xxl);
 }
+
+.blue {
+	background: blue;
+}

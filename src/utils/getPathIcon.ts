@@ -1,10 +1,9 @@
 import { Email } from '@components/icons/Email';
-import { nameIcons, Icons } from 'types';
-const iconsPath: Icons[] = [
-	{
-		name: 'email',
-		path: Email,
-	},
-];
-export const getPathIcon = (nameIcon: nameIcons) =>
-	iconsPath.find((icon) => icon.name === nameIcon).path;
+import { Password } from '@components/icons/Password';
+import { nameIcons } from 'types';
+
+const iconsPath = {
+	email: Email,
+	password: Password,
+};
+export const getPathIcon = (nameIcon: nameIcons) => iconsPath[nameIcon] || Email;

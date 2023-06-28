@@ -1,8 +1,8 @@
 import { poppins } from '@font';
-import React, { HTMLInputTypeAttribute, ReactNode } from 'react';
+import React, { FC, HTMLInputTypeAttribute, ReactNode } from 'react';
 import { getPathIcon } from 'src/utils/getPathIcon';
 import styled from 'styled-components';
-import { nameIcons } from 'types';
+import { IconProps, nameIcons } from 'types';
 
 const InputComponent = styled.input`
 	padding: 9px var(--padding-xs);
@@ -10,6 +10,7 @@ const InputComponent = styled.input`
 	border: none;
 	border-radius: var(--xs);
 	background: #f5f5f5;
+	position: relative;
 	:focus {
 		outline: 2px solid var(--principalColor);
 	}
@@ -25,23 +26,28 @@ const Label = styled.label<LableProps>`
 `;
 
 // Props interface
+interface PropsIconInput extends IconProps {
+	name: nameIcons;
+}
 interface Props {
 	children: ReactNode;
 	placeholder: string;
 	identification: string;
 	column?: boolean;
 	type?: HTMLInputTypeAttribute;
-	icon?: nameIcons;
+	icon?: PropsIconInput;
 }
-const Input = ({
+
+const Input: FC<Props> = ({
 	placeholder,
 	identification,
 	children,
 	column = false,
 	type = 'text',
 	icon,
-}: Props) => {
-	const Icon = getPathIcon(icon);
+}) => {
+	const Icon = getPathIcon(icon.name);
+
 	return (
 		<Label column={column} htmlFor={identification}>
 			{children}
@@ -51,7 +57,7 @@ const Input = ({
 				className={poppins.className}
 				placeholder={placeholder}
 			/>
-			<Icon width={30} height={30} color="blue" />
+			{icon && <Icon {...icon} />}
 		</Label>
 	);
 };
