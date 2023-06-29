@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { IconProps } from 'types';
 const Email: FC<IconProps> = ({ width, height, color = '#000', ...otherProps }) => {
-	console.log(otherProps);
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

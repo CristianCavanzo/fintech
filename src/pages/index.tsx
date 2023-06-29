@@ -6,13 +6,15 @@ const Home = () => {
 	const basicData = {
 		width: 30,
 		height: 30,
+		className: 'p-absolute icons__input',
+		color: 'var(--gray)',
 	};
 	return (
 		<Main className="display-grid row_gap--xs">
 			{/* https://assets.materialup.com/uploads/082d4c7c-55aa-41d5-86c5-0ba061189743/preview.jpg */}
 
 			<Input
-				icon={{ name: 'email', ...basicData, className: 'blue' }}
+				icon={{ name: 'email', ...basicData }}
 				column={true}
 				type="email"
 				identification="email"

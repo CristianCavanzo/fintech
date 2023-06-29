@@ -4,25 +4,25 @@ import { getPathIcon } from 'src/utils/getPathIcon';
 import styled from 'styled-components';
 import { IconProps, nameIcons } from 'types';
 
-const InputComponent = styled.input`
-	padding: 9px var(--padding-xs);
+const InputComponent = styled.input<{ spaceIcon: boolean }>`
+	padding: var(--padding-xs) ${(props) => (props.spaceIcon && '56px') || 'var(--padding-s)'};
 	outline: none;
 	border: none;
-	border-radius: var(--xs);
+	border-radius: var(--xxs);
 	background: #f5f5f5;
-	position: relative;
 	:focus {
 		outline: 2px solid var(--principalColor);
 	}
 `;
-interface LableProps {
+interface LabelProps {
 	column: boolean;
 }
-const Label = styled.label<LableProps>`
+const Label = styled.label<LabelProps>`
 	row-gap: var(--xxs);
 	display: inline-flex;
 	flex-direction: ${(props) => props.column && 'column'};
 	width: 100%;
+	position: relative;
 `;
 
 // Props interface
@@ -47,17 +47,18 @@ const Input: FC<Props> = ({
 	icon,
 }) => {
 	const Icon = getPathIcon(icon.name);
-
+	console.log(Boolean(icon));
 	return (
 		<Label column={column} htmlFor={identification}>
+			{icon && <Icon {...icon} />}
 			{children}
 			<InputComponent
+				spaceIcon={Boolean(icon)}
 				type={type}
 				id={identification}
 				className={poppins.className}
 				placeholder={placeholder}
 			/>
-			{icon && <Icon {...icon} />}
 		</Label>
 	);
 };

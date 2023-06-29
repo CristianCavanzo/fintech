@@ -3,6 +3,7 @@
 	--principalColorDarker: #1965ac;
 	--colorText: #0e283f;
 	--principalColor: #121826;
+	--gray: #555;
 	--xxs: 6px;
 	--xs: 12px;
 	--s: 16px;
@@ -69,6 +70,10 @@
 	row-gap: var(--xxl);
 }
 
-.blue {
-	background: blue;
+.p-absolute {
+	position: absolute;
+}
+.icons__input {
+	bottom: 7px;
+	left: var(--padding-xs);
 }
