@@ -11,7 +11,7 @@ const InputComponent = styled.input<{ spaceIcon: boolean }>`
 	border-radius: var(--xxs);
 	background: #f5f5f5;
 	:focus {
-		outline: 2px solid var(--principalColor);
+		outline: 2px solid var(--principalColorLight);
 	}
 `;
 interface LabelProps {
@@ -47,7 +47,6 @@ const Input: FC<Props> = ({
 	icon,
 }) => {
 	const Icon = getPathIcon(icon.name);
-	console.log(Boolean(icon));
 	return (
 		<Label column={column} htmlFor={identification}>
 			{icon && <Icon {...icon} />}

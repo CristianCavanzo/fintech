@@ -1,7 +1,8 @@
 :root {
-	--principalColor: #fff;
-	--principalColorDarker: #1965ac;
-	--colorText: #0e283f;
+	--white: #fff;
+	--principalColorDarker: #0d121c;
+	--principalColorLight: #71a9f7;
+	--colorText: #101729;
 	--principalColor: #121826;
 	--gray: #555;
 	--xxs: 6px;
@@ -40,10 +41,14 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	color: var(--colorText);
 }
 .mainContent {
 	padding: 48px 16px;
 	margin: 0 auto;
+	max-width: 400px;
+	min-height: 100vh;
+	display: flex;
 }
 .display-grid {
 	display: grid;
@@ -76,4 +81,11 @@
 .icons__input {
 	bottom: 7px;
 	left: var(--padding-xs);
+}
+
+.place-content-center {
+	place-content: center;
+}
+.h-100vh {
+	height: 100vh;
 }
