@@ -1,13 +1,8 @@
 import { LoginComponent } from '@components/pages/Login';
-import {
-	IsEmail,
-	IsNotEmpty,
-	Length,
-	ValidationArguments,
-	validateOrReject,
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, Length, ValidationArguments } from 'class-validator';
 import React from 'react';
 import { messageLength, valideEmail } from 'src/utils/generalClassValidator';
+import { validation } from 'src/utils/getPathIcon';
 
 class Login {
 	constructor(email: string) {
@@ -27,8 +22,7 @@ const Home = () => {
 		const email: HTMLInputElement = e.target[0];
 		// const password: HTMLInputElement = e.target[1];
 		const login = new Login(email.value);
-		console.log(login);
-		await validateOrReject(login);
+		validation(login);
 	};
 
 	return <LoginComponent handleSubmit={handleSubmit} />;

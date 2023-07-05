@@ -14,3 +14,11 @@ export interface IconsMeasures extends React.SVGProps<SVGSVGElement> {
 export interface IconProps extends IconsMeasures {
 	color?: string;
 }
+
+export interface ErrorClassValidator {
+	target: Object;
+	value: string;
+	property: string;
+	children: Array;
+	constraints: Object;
+}
