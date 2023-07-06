@@ -12,10 +12,15 @@ export const validation = async (value: Object) => {
 	try {
 		const data = await validateOrReject(value);
 		console.log(data);
-	} catch (error: unknown) {
-		if (Array.isArray(error)) {
-			const errorClassValidator: ErrorClassValidator[] = error;
-			console.log(errorClassValidator[0].value);
+	} catch (errors: unknown) {
+		if (Array.isArray(errors)) {
+			const errorsClassValidator: ErrorClassValidator[] = errors;
+			const messages = errorsClassValidator.map((error) => ({
+				message: error.constraints,
+				item: error.property,
+			}));
+			console.log(messages);
+			return messages;
 		}
 	}
 };
