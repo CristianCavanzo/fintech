@@ -2,9 +2,8 @@ import { LoginComponent } from '@components/pages/Login';
 import { IsEmail, IsNotEmpty, Length, MinLength } from 'class-validator';
 import React from 'react';
 import { messageLength, notEmpty, valideEmail } from 'src/utils/generalClassValidator';
-import { validation } from 'src/utils/getPathIcon';
-
-class Login {
+import { Generals } from 'src/utils/generals';
+class Login extends Generals {
 	@Length(10, 20, {
 		message: messageLength,
 	})
@@ -17,6 +16,7 @@ class Login {
 	password: string;
 
 	constructor(email: string, password: string) {
+		super();
 		this.email = email;
 		this.password = password;
 	}
@@ -28,7 +28,7 @@ const Home = () => {
 		const email: HTMLInputElement = e.target[0];
 		const password: HTMLInputElement = e.target[1];
 		const login = new Login(email.value, password.value);
-		validation(login);
+		login.showErrorInput(login, [email, password]);
 	};
 
 	return <LoginComponent handleSubmit={handleSubmit} />;
