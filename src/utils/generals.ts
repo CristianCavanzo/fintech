@@ -1,4 +1,5 @@
 import { validateOrReject } from 'class-validator';
+import React from 'react';
 import { ErrorClassValidator } from 'types';
 
 export class Generals {
@@ -19,16 +20,14 @@ export class Generals {
 		}
 	};
 
-	async showErrorInput(value: Object, domReference: HTMLInputElement[]) {
+	async showErrorInput<T>(
+		value: Object,
+		state: T,
+		setState: React.Dispatch<React.SetStateAction<T>>
+	) {
 		const message = await this.validation(value);
 		message.map((error) => {
-			const DOMIncomplete = domReference.find((item) => item.id === error.item);
-			if (DOMIncomplete) {
-				DOMIncomplete.classList.add('input_error');
-				const spanError = document.createElement('p');
-				spanError.innerHTML = 'Debes ingresar un valor valido';
-				DOMIncomplete.parentNode.appendChild(spanError);
-			}
+			console.log(state, setState);
 		});
 	}
 }

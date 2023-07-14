@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { Button } from '@components/Button';
@@ -12,11 +12,13 @@ const Login = styled.form`
 `;
 
 interface Props {
+	errorEmail: boolean;
+	errorPassword: boolean;
 	// eslint-disable-next-line no-unused-vars
 	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => any;
 }
 
-const LoginComponent: FC<Props> = ({ handleSubmit }) => {
+const LoginComponent = ({ handleSubmit, errorEmail, errorPassword }: Props) => {
 	const basicData = {
 		width: 30,
 		height: 30,
@@ -36,7 +38,7 @@ const LoginComponent: FC<Props> = ({ handleSubmit }) => {
 			>
 				Ingresa tu email
 			</Input>
-
+			{errorEmail && <p>Error</p>}
 			<Input
 				column={true}
 				type="password"
@@ -46,6 +48,7 @@ const LoginComponent: FC<Props> = ({ handleSubmit }) => {
 			>
 				Ingresa tu contraseña
 			</Input>
+			{errorPassword && <p>Error</p>}
 			<Button>Iniciar sesión</Button>
 		</Login>
 	);

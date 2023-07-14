@@ -1,6 +1,6 @@
 import { LoginComponent } from '@components/pages/Login';
 import { IsEmail, IsNotEmpty, Length, MinLength } from 'class-validator';
-import React from 'react';
+import React, { useState } from 'react';
 import { messageLength, notEmpty, valideEmail } from 'src/utils/generalClassValidator';
 import { Generals } from 'src/utils/generals';
 class Login extends Generals {
@@ -23,15 +23,32 @@ class Login extends Generals {
 }
 
 const Home = () => {
+	const [state, setState] = useState({
+		errorEmail: {
+			error: false,
+			name: 'email',
+		},
+		errorPassword: {
+			error: false,
+			name: 'password',
+		},
+	});
+
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const email: HTMLInputElement = e.target[0];
 		const password: HTMLInputElement = e.target[1];
 		const login = new Login(email.value, password.value);
-		login.showErrorInput(login, [email, password]);
+		login.showErrorInput(login, state, setState);
 	};
 
-	return <LoginComponent handleSubmit={handleSubmit} />;
+	return (
+		<LoginComponent
+			handleSubmit={handleSubmit}
+			errorEmail={state.errorEmail.error}
+			errorPassword={state.errorPassword.error}
+		/>
+	);
 };
 
 export default Home;
