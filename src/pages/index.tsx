@@ -24,15 +24,20 @@ class Login extends Generals {
 
 const Home = () => {
 	const [state, setState] = useState({
-		errorEmail: {
+		Email: {
 			error: false,
 			name: 'email',
+			value: '',
 		},
-		errorPassword: {
+		Password: {
 			error: false,
 			name: 'password',
+			value: '',
 		},
 	});
+	const updateState = (changes) => {
+		setState({ ...state, ...changes });
+	};
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -42,13 +47,7 @@ const Home = () => {
 		login.showErrorInput(login, state, setState);
 	};
 
-	return (
-		<LoginComponent
-			handleSubmit={handleSubmit}
-			errorEmail={state.errorEmail.error}
-			errorPassword={state.errorPassword.error}
-		/>
-	);
+	return <LoginComponent handleSubmit={handleSubmit} state={state} updateState={updateState} />;
 };
 
 export default Home;

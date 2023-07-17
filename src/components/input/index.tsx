@@ -1,5 +1,5 @@
 import { poppins } from '@font';
-import React, { FC, HTMLInputTypeAttribute, ReactNode } from 'react';
+import React, { HTMLInputTypeAttribute, ReactNode } from 'react';
 import { getPathIcon } from 'src/utils/getPathIcon';
 import styled from 'styled-components';
 import { IconProps, nameIcons } from 'types';
@@ -29,7 +29,7 @@ const Label = styled.label<LabelProps>`
 interface PropsIconInput extends IconProps {
 	name: nameIcons;
 }
-interface Props {
+interface Props extends React.HTMLProps<HTMLInputElement> {
 	children: ReactNode;
 	placeholder: string;
 	identification: string;
@@ -38,14 +38,14 @@ interface Props {
 	icon?: PropsIconInput;
 }
 
-const Input: FC<Props> = ({
+const Input = ({
 	placeholder,
 	identification,
 	children,
 	column = false,
 	type = 'text',
 	icon,
-}) => {
+}: Props) => {
 	const Icon = getPathIcon(icon.name);
 	return (
 		<Label column={column} htmlFor={identification}>
@@ -57,6 +57,7 @@ const Input: FC<Props> = ({
 				id={identification}
 				className={poppins.className}
 				placeholder={placeholder}
+				{...extra}
 			/>
 		</Label>
 	);

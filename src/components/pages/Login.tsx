@@ -12,13 +12,25 @@ const Login = styled.form`
 `;
 
 interface Props {
-	errorEmail: boolean;
-	errorPassword: boolean;
+	state: {
+		Email: {
+			error: boolean;
+			name: string;
+			value: string;
+		};
+		Password: {
+			error: boolean;
+			name: string;
+			value: string;
+		};
+	};
 	// eslint-disable-next-line no-unused-vars
 	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => any;
+	// eslint-disable-next-line no-unused-vars
+	updateState: (changes: Object) => void;
 }
 
-const LoginComponent = ({ handleSubmit, errorEmail, errorPassword }: Props) => {
+const LoginComponent = ({ handleSubmit, state }: Props) => {
 	const basicData = {
 		width: 30,
 		height: 30,
@@ -35,20 +47,28 @@ const LoginComponent = ({ handleSubmit, errorEmail, errorPassword }: Props) => {
 				type="email"
 				identification="email"
 				placeholder="Ingresa tu email"
+				value={state.Email.value}
+				// onInput={(e) => {
+				// 	console.log(e);
+				// }}
 			>
 				Ingresa tu email
 			</Input>
-			{errorEmail && <p>Error</p>}
+			{/* { && <p>Error</p>} */}
 			<Input
 				column={true}
 				type="password"
 				identification="password"
 				placeholder="Ingresa tu email"
 				icon={{ name: 'password', ...basicData }}
+				// value={state.Password.value}
+				// onInput={(e) => {
+				// 	console.log(e);
+				// }}
 			>
 				Ingresa tu contraseña
 			</Input>
-			{errorPassword && <p>Error</p>}
+			{/* { && <p>Error</p>} */}
 			<Button>Iniciar sesión</Button>
 		</Login>
 	);
